@@ -184,10 +184,56 @@ function set(list,elem,index){ //Funcion que remplaza un elemento por otro media
 			throw "El indice deseado es mayor que el array";
 		}else{ //Si es menor remplazo
 			num = list[index];
-			list.splice(index, 0, elem);
+			list.splice(index, 1, elem);
 		}
 	}
 
 	return num; //Devuelvo el numero remplazado
 }
+
+function testlist(){
+	//var list = create (); 	
+	var list=[]; 	
+	console.log ("Capacidad: " + capacity(list));
+	console.log("Es vacía: " + isEmpty(list));
+	console.log("Longitud: " + size(list));
+
+	try {
+		for (var i=0; i < 4; i++){
+			console.log("Nº de elementos: " + add(list,i*10));
+		}
+		addAt(list,50,2);
+		console.log("Añado el 50 en la posicion 2");
+		add(list,i); //Para que genere una exepcion
+	} catch (err) {
+		console.log(err);
+	}
+
+	console.log ("La lista llena: " + toString(list));
+	console.log ("Quiero conseguir el numero de la posicion 3: " + get(list,3));
+
+	console.log ("Esta 50 en la lista: " + indexOf(list,50));	 	
+	console.log ("Esta -50 en la lista: " + lastIndexOf(list,-50));
+
+	console.log ("El primer elemento de la lista: " + firstElement(list));
+	console.log ("El ultimo elemento de la lista: " + lastElement(list));
+
+	//clear(list);
+
+	console.log ("Voy a borrar el 40: " + removeElement(list,40));
+	console.log ("Cambio el 50 por el 40: " +set(list,40,2));
+	console.log ("La lista llena: " + toString(list));
+
+	try {
+		var i = 0;
+		while (true){
+			console.log ("Elemento borrado: " + remove(list,i));
+			console.log ("La lista: " + toString(list));
+			i++;		 	
+		}
+	} catch (err) {
+		console.log(err); //Cuando la lista este vacia, una exception sera capturada.
+	}
+} 
+window.onload = testlist;
 
