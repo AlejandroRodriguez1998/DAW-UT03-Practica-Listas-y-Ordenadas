@@ -150,7 +150,7 @@ function lastElement(list){ //Funcion que devuelve la ultima posicion
 
 function remove(list,index){ //Funcion que elimina un elemento desde la posicion
 	var num;
-	if(index > size(list)){ //Si la posicion es mayor que la longitud del array mando una exepcion
+	if(index > size(list) || index === -1){ //Si la posicion es mayor que la longitud del array mando una exepcion
 		throw "El indice deseado es mayor que el array";
 	}else{ //Sino devuelvo el numero de la posicion deseada
 		num = list.splice(index,1);
@@ -225,11 +225,11 @@ function testlist(){
 	console.log ("La lista llena: " + toString(list));
 
 	try {
-		var i = 0;
+		var i = size(list) - 1;
 		while (true){
 			console.log ("Elemento borrado: " + remove(list,i));
 			console.log ("La lista: " + toString(list));
-			i++;		 	
+			i--;		 	
 		}
 	} catch (err) {
 		console.log(err); //Cuando la lista este vacia, una exception sera capturada.

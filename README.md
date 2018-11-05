@@ -20,6 +20,10 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Creacion del testList
  - Añadidos algunos comentarios más
 
+## Version 1.0.4
+ - Corrección de errores
+ - Añadidos más comentarios
+
 ## Version 2.0.0
  - Creacion carpeta Lista
  - Creacion Lista.html, Lista.js
