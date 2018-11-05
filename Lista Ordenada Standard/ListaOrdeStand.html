@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Ordenada Standard</title>
+</head>
+<body>
+    <h1>Implementancion de una lista</h1>
+    <input type="text" id="num" value="" placeholder="Entero" onfocus="cleanData ()"/>
+    <button id="addButton" onclick="addNumber (document.getElementById ('num').value);">Añade número</button>
+
+    <br/><br/>
+
+    <p id="error" style="color:red"></p> 
+    <div id="list">
+    </div>
+    <script src="ListaOrdeStand.js"></script>
+</body>
+</html>
