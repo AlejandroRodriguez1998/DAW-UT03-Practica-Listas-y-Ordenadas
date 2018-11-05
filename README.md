@@ -25,3 +25,7 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Creacion Lista.html, Lista.js
  - Añadir funcionalidad al html
  - Funciones dependientes de la pagina
+
+## Version 2.0.1
+ - Creacion funciones genericas:
+ - create, isEmpty, isFull, size, add, addAt, get, toString, indexOf, lastIndexOf, capacity, clear, firstElement, lastElement, remove, removeElement, set
