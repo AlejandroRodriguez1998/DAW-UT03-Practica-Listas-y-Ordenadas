@@ -9,11 +9,11 @@ function cleanData(){ //Funcion que hará que cada que pulse el boton añadir li
 
 function addNumber(num){ //Funcion que recoge el numero en el HTML y añadé el numero
 	var error = document.getElementById ("error");
-	var queue = document.getElementById ("list");
+	var list = document.getElementById ("list");
 	error.innerHTML = "";  
  	try {
 	 	add(num_lista,num);
-	 	queue.innerHTML = toString(num_lista);
+	 	list.innerHTML = toString(num_lista);
  	} catch (err) {
  		error.innerHTML = err;
  	}	
@@ -53,4 +53,141 @@ function add(list,elem){ //Funcion que añade un numero a la lista
         list.push(elem);
     }
     return size(list); //Devuelvo la longitud del array
+}
+
+function addAt(list,elem,index){ //Funcion que añade un numero a la posicion deseada
+	//Convierto el elemento a entero ya que al recogerlo del formaluario es un String
+    elem = parseInt(elem);
+
+    if (isNaN(elem)) { //Compruebo si es un numero, sino lo es mando una exepcion
+        throw "El elemento no es un numero";
+    }
+    if (isFull(list)){ //Compruebo si la lista esta llena, si lo esta mando una expecion
+       throw "La lista esta llena. Tú no puedes añadir más elementos";
+	} else { //Si la lista sigue teniendo capacidad, hago un splice que añadirá 
+			//el numero al posicion deseada de la lista
+        list.splice(index, 0, elem);
+    }
+    return size(list); //Devuelvo la longitud del array
+}
+
+function get(list,index){ //Funcion que devuelve un numero en la posicion deseada
+	if(index > size(list)){ //Si la posicion es mayor que la longitud del array mando una exepcion
+		throw "El indice deseado es mayor que el array";
+	}else{ //Sino devuelvo el numero de la posicion deseada
+		return list[index];
+	}
+}
+
+function toString(list){ //Funcion que convierte el array a un formato especifico
+	var str = "";
+	if (!isEmpty(list)){ //Compruebo que el array NO esta vacio 
+		var length = size(list); //Obtengo la longitud del array con la funcion size
+		//Con el for voy recorriendo el array para meterlo en una variable aux y darle el formato
+		for (var i=0; i<length-1;i++){
+			str = str + list[i] + " - ";
+		} 		 		
+		str = str + list[i]; //Recojo el ultimo valor del array
+	} 	
+	return str; //Devuelvo el array con formato siendo String
+}
+
+function indexOf(list,elem){ //Funcion que devuelve la posicion de un elemento 
+	var position = -1; //Pongo a no encontrado el elemento
+	elem = parseInt(elem); //Convierto el elemento a un number
+	if (isNaN(elem)) { //Compruebo si es un numero si NO lo es mando una expecion
+		throw "El elemento no es un numero";	
+	} else{ //SI es un numero...
+		if (!isEmpty(list)){ //Compruebo si la lista NO esta vacia
+			position = list.indexOf(elem); //Recojo la posicion
+		} 
+	}
+	return position; //La devuelvo
+}
+
+function lastIndexOf(list,elem){ //Funcion que devuelve la posicion de un elemento EMPEZANDO por el final
+	var position = -1; //Pongo a no encontrado el elemento
+	elem = parseInt(elem); //Convierto el elemento a un number
+	if (isNaN(elem)) { //Compruebo si es un numero si NO lo es mando una expecion
+		throw "El elemento no es un numero";	
+	} else{ //SI es un numero...
+		if (!isEmpty(list)){ //Compruebo si la lista NO esta vacia
+			position = list.lastIndexOf(elem); //Recojo la posicion
+		} 
+	}
+	return position; //La devuelvo
+}
+
+function capacity(list){ //Funcion que devuelve la capacidad de la lista
+	return max_element_lista;
 } 
+
+function clear(list){ //Funcion que borra el array
+	if (!isEmpty(list)){
+		list.splice(0, list.length);	 		 		
+	} 	
+} 
+
+function firstElement(list){ //Funcion que devuelve la primera posicion
+	var first;
+	if (isEmpty(list)){ //Compruebo que la lista no esta vacia, si lo esta devuelvo una exepcion
+		throw "La lista esta vacia."; 		
+	} else {
+		first = list[0];
+	}
+	return first;
+} 
+
+function lastElement(list){ //Funcion que devuelve la ultima posicion
+	var last;
+	if (isEmpty(list)){ //Compruebo que la lista no esta vacia, si lo esta devuelvo una exepcion
+		throw "La lista esta vacia.";			
+	} else {
+		last = list[list.length-1];
+	}
+	return last;
+} 
+
+function remove(list,index){ //Funcion que elimina un elemento desde la posicion
+	var num;
+	if(index > size(list)){ //Si la posicion es mayor que la longitud del array mando una exepcion
+		throw "El indice deseado es mayor que el array";
+	}else{ //Sino devuelvo el numero de la posicion deseada
+		num = list.splice(index,1);
+	}
+	return num; //Devuelvo el numero borrado
+}
+
+function removeElement(list,elem){ //Funcion que elemina un elemento buscandolo
+	var comprobacion = false;
+	elem = parseInt(elem); //Convierto el elemento a un number
+	if (isNaN(elem)) { //Compruebo si es un numero si NO lo es mando una expecion
+		throw "El elemento no es un numero";	
+	} else{ //SI es un numero...
+		var posicion = indexOf(list,elem); //Recojo la posicion donde esta el numero
+
+		if(posicion != -1){ //Si el numero es distinto de -1 significa que lo ha encontrado
+			list.splice(posicion,1); //Lo borro
+			comprobacion = true; //Cambio a true porque lo he encontrado
+		}
+	}
+	return comprobacion;
+}
+
+function set(list,elem,index){ //Funcion que remplaza un elemento por otro mediante la posicion
+	var num;
+	elem = parseInt(elem); //Convierto el elemento a un number
+	if (isNaN(elem)) { //Compruebo si es un numero si NO lo es mando una expecion
+		throw "El elemento no es un numero";	
+	} else{ //SI es un numero...
+		if(index > size(list)){ //Compruebo que el indice no sea mayor que la longitud del array
+			throw "El indice deseado es mayor que el array";
+		}else{ //Si es menor remplazo
+			num = list[index];
+			list.splice(index, 0, elem);
+		}
+	}
+
+	return num; //Devuelvo el numero remplazado
+}
+
