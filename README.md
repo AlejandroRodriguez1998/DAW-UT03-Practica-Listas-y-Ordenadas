@@ -29,3 +29,8 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
 ## Version 2.0.1
  - Creacion funciones genericas:
  - create, isEmpty, isFull, size, add, addAt, get, toString, indexOf, lastIndexOf, capacity, clear, firstElement, lastElement, remove, removeElement, set
+
+## Version 2.0.2
+ - Modificación errores
+ - Creacion testList
+ - Añadidos comentarios

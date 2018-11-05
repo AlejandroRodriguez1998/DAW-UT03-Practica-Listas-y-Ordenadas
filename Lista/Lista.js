@@ -3,7 +3,7 @@
 var num_lista = create();
 
 function cleanData(){ //Funcion que hará que cada que pulse el boton añadir limpia el input
-    document.getElementById ("num").value = "" ;  
+    document.getElementById ("num").value = "";  
 }
 
 function addNumber(num){ //Funcion que recoge el numero en el HTML y añadé el numero
@@ -80,8 +80,8 @@ function addAt(list,elem,index){ //Funcion que añade un numero a la posicion de
         var aux;
         var long = size(list);
         for(let i = index; i <= long; i++){
-            aux = array[i];
-            array[i] = elem;
+            aux = list[i];
+            list[i] = elem;
             elem = aux;
         }
     }
@@ -184,15 +184,15 @@ function lastElement(list){ //Funcion que devuelve la ultima posicion
 
 function remove(list,index){ //Funcion que elimina un elemento desde la posicion
 	var num;
-	if(index > size(list)){ //Si la posicion es mayor que la longitud del array mando una exepcion
+	if(index > size(list) || index === -1){ //Si la posicion es mayor que la longitud del array mando una exepcion
 		throw "El indice deseado es mayor que el array";
 	}else{ //Sino devuelvo el numero de la posicion deseada
         var num = list[index];
         var aux;
         var long = size(list);
         for(let i = index; i <= long; i++){
-            aux = array[i+1];
-            array[i] = aux;
+            aux = list[i+1];
+            list[i] = aux;
         }
 	}
 	return num; //Devuelvo el numero borrado
@@ -210,8 +210,8 @@ function removeElement(list,elem){ //Funcion que elimina un elemento buscandolo
 			var aux;
             var long = size(list);
             for(let i = posicion; i <= long; i++){
-                aux = array[i+1];
-                array[i] = aux;
+                aux = list[i+1];
+                list[i] = aux;
             }
 			comprobacion = true; //Cambio a true porque lo he encontrado
 		}
@@ -234,3 +234,49 @@ function set(list,elem,index){ //Funcion que remplaza un elemento por otro media
 	}
 	return num; //Devuelvo el numero remplazado
 }
+
+function testlist(){
+	//var list = create (); 	
+	var list=[]; 	
+	console.log ("Capacidad: " + capacity(list));
+	console.log("Es vacía: " + isEmpty(list));
+	console.log("Longitud: " + size(list));
+
+	try {
+		for (var i=0; i < 4; i++){
+			console.log("Nº de elementos: " + add(list,i*10));
+		}
+		addAt(list,50,2);
+		console.log("Añado el 50 en la posicion 2");
+		add(list,i); //Para que genere una exepcion
+	} catch (err) {
+		console.log(err);
+	}
+
+	console.log ("La lista llena: " + toString(list));
+	console.log ("Quiero conseguir el numero de la posicion 3: " + get(list,3));
+
+	console.log ("Esta 50 en la lista: " + indexOf(list,50));	 	
+	console.log ("Esta -50 en la lista: " + lastIndexOf(list,-50));
+
+	console.log ("El primer elemento de la lista: " + firstElement(list));
+	console.log ("El ultimo elemento de la lista: " + lastElement(list));
+
+	//clear(list);
+
+	console.log ("Voy a borrar el 40: " + removeElement(list,40));
+	console.log ("Cambio el 50 por el 40: " +set(list,40,2));
+	console.log ("La lista llena: " + toString(list));
+
+	try {
+		var i = size(list) - 1;
+		while (true){
+			console.log ("Elemento borrado: " + remove(list,i));
+			console.log ("La lista: " + toString(list));
+			i--;		 	
+		}
+	} catch (err) {
+		console.log(err); //Cuando la lista este vacia, una exception sera capturada.
+    }
+} 
+window.onload = testlist;
