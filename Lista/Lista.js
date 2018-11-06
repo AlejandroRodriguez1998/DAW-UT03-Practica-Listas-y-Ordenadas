@@ -76,7 +76,10 @@ function addAt(list,elem,index){ //Funcion que añade un numero a la posicion de
     }
     if (isFull(list)){ //Compruebo si la lista esta llena, si lo esta mando una expecion
        throw "La lista esta llena. Tú no puedes añadir más elementos";
-    } else { //Si la lista sigue teniendo capacidad, meto el elemento
+	} 
+	if(index > size(list) || index <= -1){
+		throw "El indice esta fuera de los limites de la lista";
+	}else { //Si la lista sigue teniendo capacidad, meto el elemento
         var aux;
         var long = size(list);
         for(let i = index; i <= long; i++){
@@ -89,8 +92,8 @@ function addAt(list,elem,index){ //Funcion que añade un numero a la posicion de
 }
 
 function get(list,index){ //Funcion que devuelve un numero en la posicion deseada
-	if(index > size(list)){ //Si la posicion es mayor que la longitud del array mando una exepcion
-		throw "El indice deseado es mayor que el array";
+	if(index > size(list) || index <= -1){ //Si la posicion es mayor que la longitud del array mando una exepcion
+		throw "El indice esta fuera de los limites de la lista";
 	}else{ //Sino devuelvo el numero de la posicion deseada
 		return list[index];
 	}
@@ -184,8 +187,8 @@ function lastElement(list){ //Funcion que devuelve la ultima posicion
 
 function remove(list,index){ //Funcion que elimina un elemento desde la posicion
 	var num;
-	if(index > size(list) || index === -1){ //Si la posicion es mayor que la longitud del array mando una exepcion
-		throw "El indice deseado es mayor que el array";
+	if(index > size(list) || index <= -1){ //Si la posicion es mayor que la longitud del array mando una exepcion
+		throw "El indice esta fuera de los limites de la lista";
 	}else{ //Sino devuelvo el numero de la posicion deseada
         var num = list[index];
         var aux;
@@ -225,8 +228,8 @@ function set(list,elem,index){ //Funcion que remplaza un elemento por otro media
 	if (isNaN(elem)) { //Compruebo si es un numero si NO lo es mando una expecion
 		throw "El elemento no es un numero";	
 	} else{ //SI es un numero...
-		if(index > size(list)){ //Compruebo que el indice no sea mayor que la longitud del array
-			throw "El indice deseado es mayor que el array";
+		if(index > size(list) || index <= -1){ //Compruebo que el indice no sea mayor que la longitud del array
+			throw "El indice esta fuera de los limites de la lista";
 		}else{ //Si es menor remplazo
 			num = list[index];
 			list[index] = elem;
