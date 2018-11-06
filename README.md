@@ -20,7 +20,7 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Creacion del testList
  - Añadidos algunos comentarios más
 
-## Version 1.0.4 y Version 1.0.5
+## Version 1.0.4 & Version 1.0.5 & Version 1.0.6 
  - Corrección de errores
  - Añadidos más comentarios
 

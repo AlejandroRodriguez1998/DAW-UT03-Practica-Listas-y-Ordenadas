@@ -186,7 +186,7 @@ function set(list,elem,index){ //Funcion que remplaza un elemento por otro media
 		if(index > size(list) || index <= -1){ //Compruebo que el indice no sea mayor que la longitud del array
 			throw "El indice esta fuera de los limites de la lista";
 		}else{ //Si es menor remplazo
-			num = list[index];
+			num = get(list,index);
 			list.splice(index, 1, elem);
 		}
 	}
@@ -224,7 +224,7 @@ function testlist(){
 	//clear(list);
 
 	console.log ("Voy a borrar el 40: " + removeElement(list,40));
-	console.log ("Cambio el 50 por el 40: " +set(list,40,2));
+	console.log ("Voy a poner 40 por el: " +set(list,40,2));
 	console.log ("La lista llena: " + toString(list));
 
 	try {
