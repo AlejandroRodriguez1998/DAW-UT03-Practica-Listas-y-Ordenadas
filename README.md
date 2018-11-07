@@ -48,3 +48,8 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Creacion ListaOrdStand.html, ListaOrdStand.js
  - Añadir funcionalidad al html
  - Funciones dependientes de la pagina
+
+## Version 3.0.1
+ - Funcionalidades genericas
+ - Añadidos comentarios
+ - Añadida funcion consumir
