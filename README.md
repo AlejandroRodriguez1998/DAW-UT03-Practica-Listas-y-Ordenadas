@@ -61,3 +61,9 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Funcionalidades genericas
  - Añadidos comentarios
  - Añadida funcion consumir
+
+## Version 4.0.0
+ - Creacion carpeta Lista Ordenada
+ - Creacion ListaOrde.html y ListaOrde.js
+ - Añadir funcionalidad al html
+ - Funciones depedientes de la pagina
