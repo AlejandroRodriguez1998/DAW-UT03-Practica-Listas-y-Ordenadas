@@ -24,6 +24,9 @@ Entregable de ejercicio de Listas y Listas Ordenadas en las dos versiones del ej
  - Corrección de errores
  - Añadidos más comentarios
 
+## Version 1.0.7
+ - Añadida funcion borrar en el html y js
+
 ## Version 2.0.0
  - Creacion carpeta Lista
  - Creacion Lista.html, Lista.js
