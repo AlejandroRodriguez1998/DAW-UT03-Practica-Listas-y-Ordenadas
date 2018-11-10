@@ -18,6 +18,18 @@ function addNumber(num){ //Funcion que recoge el numero en el HTML y añadé el 
  	}	
 }
 
+function pollNumber (){ //Funcion que borra un numero
+	var error = document.getElementById ("error");
+	var list = document.getElementById ("list");
+	list.innerHTML = "";  
+ 	try {
+		remove(num_lista,size(num_lista)-1);
+	 	list.innerHTML = toString(num_lista);
+ 	} catch (err) {
+ 		error.innerHTML = err;
+ 	}		
+}
+
 /* Funciones genericas de la lista */
 
 var max_element_lista = 5; //Mi lista tendra 5 elementos
